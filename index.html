@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#0b5aa2">
-<title>厄德 · 中外建史横向对比背诵站</title>
+<title>中外建史横向对比背诵站</title>
 <style>:root{--blue:#0b5aa2;--blue2:#e8f0f9;--gray:#d6d6d6;--gray2:#efefef;--line:#3a3a3a;--ink:#1d1f23;--mut:#666b73;--bg:#f3f4f6;--hi:#fff1a8;--red:#c9372c;--amb:#b7791f;--ok:#2f855a;--vw:44vw;
 [hidden]{display:none!important}
   --f:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Noto Sans CJK SC","Microsoft YaHei",sans-serif}
@@ -1267,8 +1267,8 @@ function home() {
       <h3>${esc(t.title)}</h3><p class="tc-r">${esc(t.reason)}</p><div class="tc-v">${t.views.map(v => `<span>${esc(v)}</span>`).join('')}</div>
       <div class="tc-f"><span>${MANIFEST[t.id].filter(x=>!x.cover).length} 张长图</span><span>${ISSUES.filter(r => r[1].includes(t.id)).length} 处勘误</span><span>赞 ${t.likes} · 藏 ${t.favs}</span></div></div></a>`; };
   return `<div class="home">
-   <section class="hero"><div class="hero-band"><span class="vt">厄德 · 中外建史表格</span></div><div class="hero-main">
-     <h1>中外建史 · 横向对比背诵站</h1><p class="lead">把厄德 12 篇表格长图拆成可筛选、可对照、可遮挡背诵的交互视图。按浙大 355 真题价值排序：<b class="val val-0">高 ${counts['高']}</b> <b class="val val-1">中 ${counts['中']}</b> <b class="val val-2">低 ${counts['低']}</b>，另附 ${ISSUES.length} 条勘误。</p>
+   <section class="hero"><div class="hero-band"><span class="vt">中外建史表格</span></div><div class="hero-main">
+     <h1>中外建史 · 横向对比背诵站</h1><p class="lead">把 12 篇表格长图拆成可筛选、可对照、可遮挡背诵的交互视图。按浙大 355 真题价值排序：<b class="val val-0">高 ${counts['高']}</b> <b class="val val-1">中 ${counts['中']}</b> <b class="val val-2">低 ${counts['低']}</b>，另附 ${ISSUES.length} 条勘误。</p>
      <p class="advice">${esc(ADVICE)}</p>
      <div class="hero-act"><a class="btn pri" href="#/timeline">总时间轴：古代 → 后现代</a><a class="btn" href="#/t/wj01/graph">人物关系图</a><a class="btn" href="#/quiz">开始自测</a><a class="btn" href="#/issues">勘误清单</a></div>
      <p class="muted small">${esc(BASIS)}</p></div></section>
@@ -1450,9 +1450,9 @@ function route() {
     const toc = $('.toc', view); toc.innerHTML = $$('.sec', view).map(s => `<button data-goto="${s.id}">${esc(s.dataset.title.replace(/（.*?）|：.*$/g, ''))}</button>`).join('');
     AFTER[tid] && AFTER[tid](view); mountMCQ(view);
     if (viewerTopic && viewerTopic !== tid) openViewer(tid);
-    document.title = `${ZONE[TOPIC[tid].zone]} ${TOPIC[tid].no} ${TOPIC[tid].title} · 厄德中外建史`;
+    document.title = `${ZONE[TOPIC[tid].zone]} ${TOPIC[tid].no} ${TOPIC[tid].title} · 中外建史`;
     if (parts[2]) { const el = $('#s-' + parts[2], view); if (el) setTimeout(() => el.scrollIntoView({ block: 'start' }), 30); else scrollTo(0, 0); } else scrollTo(0, 0);
-  } else { if (viewerTopic) closeViewer(); document.title = '厄德 · 中外建史横向对比背诵站'; scrollTo(0, 0); }
+  } else { if (viewerTopic) closeViewer(); document.title = '中外建史横向对比背诵站'; scrollTo(0, 0); }
   if (parts[0] === 'search') { const f = $('#sform'); f.onsubmit = e => { e.preventDefault(); location.hash = '#/search/' + encodeURIComponent(f.q.value); }; }
   applyMask();
 }
